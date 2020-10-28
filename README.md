@@ -139,7 +139,7 @@ It is actually a general-purpose DOM data binding and manipulation library.
 You can thus use it to manipulate arbitrary HTML tags too, e.g., the tags for tables: `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`.
 
 You can [search for at examples online](https://www.google.com/search?&q=d3+html+table), e.g., Jonah Williams' [Interactive HTML Table I](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d).
-Note that this is using D3 version 3 while you are using D3 version 5, so some changes may be necessary.
+Note that this is using D3 version 3 while you are using D3 version 6, so some changes may be necessary.
 **Make sure to cite any materials you use.**
 
 ## How to implement interaction on the table
