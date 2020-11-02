@@ -105,8 +105,6 @@ Make your edits and commit major versions to your git repository.
 You can also see the results in the Actions tab of your repo:
 ![GitHub Actions tab](img/gh-actions.png)
 
-
-
 The final interaction should look like this (without the concentric red rings on click):
 
 ![Interaction example](img/interaction.gif)
@@ -139,7 +137,7 @@ It is actually a general-purpose DOM data binding and manipulation library.
 You can thus use it to manipulate arbitrary HTML tags too, e.g., the tags for tables: `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`.
 
 You can [search for at examples online](https://www.google.com/search?&q=d3+html+table), e.g., Jonah Williams' [Interactive HTML Table I](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d).
-Note that this is using D3 version 3 while you are using D3 version 5, so some changes may be necessary.
+Note that this is using D3 version 3 while you are using D3 version 6, so some changes may be necessary.
 **Make sure to cite any materials you use.**
 
 ## How to implement interaction on the table
@@ -147,19 +145,18 @@ Note that this is using D3 version 3 while you are using D3 version 5, so some c
 [`d3.brush`](https://github.com/d3/d3-brush) would be hard to use directly atop an HTML `table`. Instead, think about how you can re-create similar functionality by listening for DOM events. D3's `d3-selection` module can listen for any of the [standard DOM events](https://github.com/d3/d3-selection#handling-events) using the `selection.on(typenames[, listener[, options]])` function.
 
 E.g., to provide row highlighting on mouseover a la Jonah Williams' [Interactive HTML Table I](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d) you can listen for [Mouse Events](https://developer.mozilla.org/en-US/docs/Web/Events#Mouse_events) like so (with D3v6):
+
 ```js
 d3.selectAll('tr')
     .on('mouseover', (event, d) => {
-      const e = selection.nodes(),
-            i = e.indexOf(this);
-      d3.select(e[i]).classed('highlighted', true);
+      d3.select(event.currentTarget).classed('highlighted', true);
     })
     .on('mouseout', (event, d) => {
-      const e = selection.nodes(),
-      i = e.indexOf(this);
-      d3.select(e[i]).classed('highlighted', false);
+      d3.select(event.currentTarget).classed('highlighted', false);
     });
 ```
+
+There are some major differences with D3v6 vs. previously. See, e.g,. [this thread on StackOverflow](https://stackoverflow.com/questions/63693132/unable-to-get-node-datum-on-mouseover-in-d3-v6) and [the migration guide](https://observablehq.com/@d3/d3v6-migration-guide#events).
 
 ### How we are sending selection updated events
 
