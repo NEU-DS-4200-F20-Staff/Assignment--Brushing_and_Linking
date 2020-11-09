@@ -4,7 +4,6 @@ This repository is your starting point for the assignment and includes the instr
 
 Link to your GitHub pages website: `[insert your *clickable* hyperlink here]`
 
-
 # Aim of the assignment
 
 This assignment will help you get started with brushing and linking which you will need for your project.
@@ -73,10 +72,6 @@ Each folder has an explanatory `README.md` file.
 You will be creating a new table that is connected to the existing scatterplot and line chart using brushing and linking.
 Make your edits and commit major versions to your git repository.
 **Under no circumstances should you be editing files via the GitHub user interface.**
-
-1. In `README.md` (this file) update the URL above with your actual GitHub pages URL.
-
-1. In `index.html` update the GitHub repo URL with the URL of your repository. It is in the span with `id='forkongithub'`.
 
 1. Create a new JavaScript file `js/table.js`.
 
